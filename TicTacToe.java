@@ -70,7 +70,7 @@ public class TicTacToe {
 		lastPlayed = "Player";
 		if (checkWin(board)) { // UC12 -- Player wins
 			System.out.println("Player Won The Game !! \nDo You Want to Play Another Game (Y/N) : ");
-			if (Character.toUpperCase(sc.next().charAt(0)) == 'Y') // UC13 -- Next Game
+			if (Character.toUpperCase(sc.next().charAt(0)) == 'Y') 
 				startGame();
 			else
 				System.exit(0);
@@ -78,8 +78,8 @@ public class TicTacToe {
 		if (isEmpty(board)) {
 			moveComputer(board);
 		} else {
-			System.out.println("Game Tied. \nDo You Want to Play Another Game (Y/N) : "); // UC12 -- Board is full
-			if (Character.toUpperCase(sc.next().charAt(0)) == 'Y') // UC13 -- Next Game
+			System.out.println("Game Tied. \nDo You Want to Play Another Game (Y/N) : "); 
+			if (Character.toUpperCase(sc.next().charAt(0)) == 'Y') 
 				startGame();
 			else
 				System.exit(0);
@@ -88,10 +88,7 @@ public class TicTacToe {
 	}
 
 	/*
-	 * UC8 -- UC12 Computer Movement 8. check if computer can win 9. check if player
-	 * can win 10. check if diagonal cells are available 11. check if center is
-	 * available. If not, take any sides. 12. check if board is full or one of the
-	 * players wins
+	 * UC8 --check if computer can win
 	 */
 	public static void moveComputer(char[] board) {
 		int checkCompWinPos = checkIsWinning(board, computerLetter);
@@ -101,15 +98,15 @@ public class TicTacToe {
 			board[checkCompWinPos] = computerLetter;
 			displayBoard(board);
 			System.out.println("Computer Won The Game !! \nDo You Want to Play Another Game (Y/N) : ");
-			if (Character.toUpperCase(sc.next().charAt(0)) == 'Y') // UC13 -- Next Game
+			if (Character.toUpperCase(sc.next().charAt(0)) == 'Y') 
 				startGame();
 			else
 				System.exit(0);
 		} // UC8
-		else if (checkPlayWinPos != 0) // UC9
+		else if (checkPlayWinPos != 0) 
 			board[checkPlayWinPos] = computerLetter;
 		else {
-			if (board[1] == ' ') // UC10
+			if (board[1] == ' ') 
 				board[1] = computerLetter;
 			else if (board[3] == ' ')
 				board[3] = computerLetter;
@@ -118,7 +115,7 @@ public class TicTacToe {
 			else if (board[9] == ' ')
 				board[9] = computerLetter;
 			else if (board[5] == ' ')
-				board[5] = computerLetter; // UC11
+				board[5] = computerLetter; 
 			else if (board[2] == ' ')
 				board[2] = computerLetter;
 			else if (board[4] == ' ')
@@ -130,9 +127,9 @@ public class TicTacToe {
 		}
 		displayBoard(board);
 		lastPlayed = "Computer";
-		if (checkWin(board)) { // UC12 -- Computer Wins
+		if (checkWin(board)) { 
 			System.out.println("Computer Won The Game !! \nDo You Want to Play Another Game (Y/N) : ");
-			if (Character.toUpperCase(sc.next().charAt(0)) == 'Y') // UC13 -- Next Game
+			if (Character.toUpperCase(sc.next().charAt(0)) == 'Y') 
 				startGame();
 			else
 				System.exit(0);
@@ -140,7 +137,7 @@ public class TicTacToe {
 		if (isEmpty(board)) {
 			movePlayer(board);
 		} else {
-			System.out.println("Game Tied."); // UC12 -- board is full
+			System.out.println("Game Tied."); 
 			System.exit(0);
 		}
 	}
@@ -193,13 +190,13 @@ public class TicTacToe {
 
 	private static boolean checkWin(char[] board) {
 		return ((board[1] == board[2] && board[2] == board[3] && board[1] != ' ') // top-row
-				|| (board[4] == board[5] && board[5] == board[6] && board[4] != ' ') // middle-row
-				|| (board[7] == board[8] && board[8] == board[9] && board[7] != ' ') // bottom-row
-				|| (board[1] == board[4] && board[4] == board[7] && board[1] != ' ') // left-column
-				|| (board[2] == board[5] && board[5] == board[8] && board[2] != ' ') // middle-column
-				|| (board[3] == board[6] && board[6] == board[9] && board[3] != ' ') // right-column
-				|| (board[1] == board[5] && board[5] == board[9] && board[1] != ' ') // left-diagonal
-				|| (board[3] == board[5] && board[5] == board[7] && board[3] != ' ')); // right-diagonal
+				|| (board[4] == board[5] && board[5] == board[6] && board[4] != ' ') 
+				|| (board[7] == board[8] && board[8] == board[9] && board[7] != ' ') 
+				|| (board[1] == board[4] && board[4] == board[7] && board[1] != ' ') 
+				|| (board[2] == board[5] && board[5] == board[8] && board[2] != ' ') 
+				|| (board[3] == board[6] && board[6] == board[9] && board[3] != ' ') 
+				|| (board[1] == board[5] && board[5] == board[9] && board[1] != ' ') 
+				|| (board[3] == board[5] && board[5] == board[7] && board[3] != ' ')); 
 	}
 
 	private static boolean areMovesLeft(char[] board) {
