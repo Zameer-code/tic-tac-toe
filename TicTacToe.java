@@ -88,8 +88,12 @@ public class TicTacToe {
 	}
 
 	/*
-	 * UC8 --check if computer can win
+	 * UC8 -- UC12 Computer Movement 8. check if computer can win 9. check if player
+	 * can win 10. check if diagonal cells are available 11. check if center is
+	 * available. If not, take any sides. 12. check if board is full or one of the
+	 * players wins
 	 */
+	
 	public static void moveComputer(char[] board) {
 		int checkCompWinPos = checkIsWinning(board, computerLetter);
 		int checkPlayWinPos = checkIsWinning(board, playerLetter);
